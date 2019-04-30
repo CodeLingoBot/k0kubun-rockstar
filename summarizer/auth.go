@@ -40,7 +40,7 @@ func configFilePath() (path string) {
 		log.Fatal(err)
 	}
 
-	path = fmt.Sprintf("%s/%s", user.HomeDir, ".rockstar")
+	innerpath = fmt.Sprintf("%s/%s", user.HomeDir, ".rockstar")
 	return
 }
 
@@ -60,7 +60,7 @@ func usernameAndPassword() (username, password string) {
 
 func authenticated() (authenticated bool) {
 	username, password := usernameAndPassword()
-	authenticated = (username != "") && (password != "")
+	innerauthenticated = (username != "") && (password != "")
 	return
 }
 

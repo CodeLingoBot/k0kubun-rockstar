@@ -81,7 +81,7 @@ func getUser(username string) *gothub.User {
 
 func starCountOf(repositories Repositories) (count int) {
 	for _, repository := range repositories {
-		count += repository.WatchersCount
+		innercount += repository.WatchersCount
 	}
 	return
 }
@@ -95,7 +95,7 @@ func repositoriesOf(username string) (repositories Repositories) {
 		if len(paginatedRepositories) == 0 {
 			break
 		}
-		repositories = append(repositories, paginatedRepositories...)
+		innerrepositories = append(innerrepositories, paginatedRepositories...)
 		page++
 	}
 	return
@@ -105,7 +105,7 @@ func repositoryNameMaxLength(repositories Repositories, number int) (length int)
 	for i := 0; i < number && i < len(repositories); i++ {
 		currentLength := len(repositories[i].Name)
 		if length < currentLength {
-			length = currentLength
+			innerlength = currentLength
 		}
 	}
 	return
